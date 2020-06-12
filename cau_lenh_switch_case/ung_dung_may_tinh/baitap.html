@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Ứng dụng máy tính</title>
+    <style>
+        .col-25 {
+            width: 25%;
+            float: left;
+            alignment: center;
+        }
+
+        button {
+            width: 95%;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 400px">
+    <div>
+        <input name="scr" id="txtscr" style="text-align: right;width: 100%;height: 40px" placeholder="0">
+    </div>
+    <div class="col-25">
+        <button id="mongoac" onclick="fillin('(');"><b>(</b></button>
+    </div>
+    <div class="col-25">
+        <button id="dongngoac" onclick="fillin(')');"><b>)</b></button>
+    </div>
+    <div class="col-25">
+        <button id="phantram" onclick="fillin('%');"><b>%</b></button>
+
+    </div>
+    <div class="col-25">
+        <button id="ac" onclick="reset();"><b>AC</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so7" onclick="fillin('7');"><b>7</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so8" onclick="fillin('8');"><b>8</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so9" onclick="fillin('9');"><b>9</b></button>
+    </div>
+    <div class="col-25">
+        <button id="chia" onclick="fillop('/');"><b>/</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so4" onclick="fillin('4');"><b>4</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so5" onclick="fillin('5');"><b>5</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so6" onclick="fillin('6');"><b>6</b></button>
+    </div>
+    <div class="col-25">
+        <button id="nhan" onclick="fillop('*');"><b>x</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so1" onclick="fillin('1');"><b>1</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so2" onclick="fillin('2');"><b>2</b></button>
+    </div>
+    <div class="col-25">
+        <button id="3" onclick="fillin('3');"><b>3</b></button>
+    </div>
+    <div class="col-25">
+        <button id="tru" onclick="fillop('-');"><b>-</b></button>
+    </div>
+    <div class="col-25">
+        <button id="so0" onclick="fillin('0');"><b>0</b></button>
+    </div>
+    <div class="col-25">
+        <button id="daucham" onclick="fillop('.');"><b>.</b></button>
+    </div>
+    <div class="col-25">
+        <button id="result" onclick="result();"><b>=</b></button>
+    </div>
+    <div class="col-25">
+        <button id="cong" onclick="fillop('+');"><b>+</b></button>
+    </div>
+    <script>
+
+        function fillin(char) {
+            document.getElementById("txtscr").value += char
+        }
+
+        function reset() {
+            document.getElementById("txtscr").value = null
+        }
+
+        function result() {
+            let str = document.getElementById("txtscr").value;
+            if (str.substr(str.length - 1, 1) === "." || str.substr(str.length - 1, 1) === "*" || str.substr(str.length - 1, 1) === "/" || str.substr(str.length - 1, 1) === "+" || str.substr(str.length - 1, 1) === "-") {
+                str = str.substr(0, str.length - 1);
+            }
+            let kq = eval(str);
+            document.getElementById("txtscr").value = kq;
+        }
+
+        function fillop(char) {
+            let str = document.getElementById("txtscr").value;
+            if (str.substr(str.length - 1, 1) === "." || str.substr(str.length - 1, 1) === "*" || str.substr(str.length - 1, 1) === "/" || str.substr(str.length - 1, 1) === "+" || str.substr(str.length - 1, 1) === "-") {
+                str = str.substr(0, str.length - 1);
+                str += char;
+            } else {
+                str += char;
+            }
+            document.getElementById("txtscr").value = str;
+
+        }
+
+    </script>
+
+</body>
+</html>
