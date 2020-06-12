@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai_tap</title>
+</head>
+<body>
+
+        <label id="scr2"></label>
+        <button type="button" onclick="tinh()">RUN</button>
+
+<script>
+    function tinh() {
+        let n = parseInt(prompt('Nhap mot so bat ky lon hon 0'));
+        let sum = 0;
+        if (n >= 1) {
+            for (let i = 1; i <= n; i++) {
+                sum += i;
+            }
+            document.getElementById('scr2').innerHTML = 'Tong cac so tu 1 den ' + n + ' la: ' + sum;
+        }else {
+
+            document.getElementById('scr2').innerHTML = 'So nhap vao khong hop le';
+        }
+    }
+</script>
+</body>
+</html>
